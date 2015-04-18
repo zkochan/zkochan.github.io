@@ -2,7 +2,8 @@
 layout: post
 title:  "Config your NodeJS as a Pro!"
 date:   2015-04-18 18:45:49
-categories: sitegate
+categories: nodejs
+comments: true
 ---
 When I started to develop apps using NodeJS, I wondered, how should I save my configs? It seems that everyone does it in his own way.
 
