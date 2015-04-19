@@ -8,10 +8,6 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://zkochan.github.com" # the base hostname & protocol for your site
 twitter_username: ZoltanKochan
 github_username:  zkochan
-analytics:
-  provider: google
-  google:
-    tracking_id: 'UA-62023897-1'
 
 # Build settings
 markdown: kramdown
