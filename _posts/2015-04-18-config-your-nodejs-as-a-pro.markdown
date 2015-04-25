@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Config your NodeJS as a Pro!"
+title:  "Config your NodeJS like a Pro!"
 date:   2015-04-18 18:45:49
 categories: nodejs
 comments: true
@@ -30,7 +30,7 @@ You might wonder, why to use js files for storing configs? Why not just JSON? I 
 * Getting configs from environment variables
 * Configs validation
 
-They do it by using a `config schema`. A config schema is describing
+They do it by using a **config schema**. A config schema is describing
 
 * what should be the structure of the app's config
 * the types of the config values
