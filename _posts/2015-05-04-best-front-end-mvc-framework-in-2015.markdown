@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Best framework for writing single-page applications"
+title:  "What is the best front-end MVC framework in 2015?"
 date:   2015-05-04 18:27:00
-categories: single-page-app
+categories: mvc
 comments: true
 ---
 
