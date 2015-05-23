@@ -50,7 +50,7 @@ So why all the complexity? This can be easily done by having:
 
 I am going to create an open source project which will do all of it and I'll add the link to it later.
 
-**updated on 23/05/2015**
+###updated on 23/05/2015
 
 Instead of creating one project, I decided to create two:
 
