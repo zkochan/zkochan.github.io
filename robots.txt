@@ -1,0 +1,5 @@
+# robotstxt.org/
+
+User-agent: *
+
+Sitemap: http://zkochan.github.com/sitemap.xml
