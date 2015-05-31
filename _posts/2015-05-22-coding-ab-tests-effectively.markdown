@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Coding A/B tests effectively
-date: {}
+date: 2015-05-22 22:35:00
 categories: ab
 comments: true
 published: true
