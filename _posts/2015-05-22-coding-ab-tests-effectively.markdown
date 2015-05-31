@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "Coding A/B tests effectively"
-date:   2015-05-22 22:35:00
+title: Coding A/B tests effectively
+date: {}
 categories: ab
 comments: true
+published: true
 ---
+
 
 Writing A/B tests is very popular nowadays. It is an effective and fast way of finding out whether users will like some changes on the site or not, will the change increase conversion, revenue engagement or other key metrics on the site or not?
 
@@ -69,24 +71,24 @@ And the good news is: I've already created that simple NodeJS app! It is called 
 
 #How to use Foso with Optimizely?
 
-Lets return to our example, where we wanted to do 3 variations in one experiment, and reuse some of the code. In order to implement it with Foso, we have to use this folder structure:
+Lets return to our example, where we wanted to do 3 variations in one experiment, and reuse some of the code. In order to implement it with Foso, we can use this folder structure:
 
 <pre>
 my-experiment
- ├── _shared
+ ├── shared
  |   ├── red-sign-in.less
  |   ├── new-logo.less
  |   └── add-class.js
  ├── variation-1
  |   └── homepage
- |       └── index.js
+ |       └── bundle.js
  ├── variation-2
  |   └── homepage
- |       └── index.js
+ |       └── bundle.js
  └── variation-3
      └── homepage
          ├── changing-footer.js
-         └── index.js
+         └── bundle.js
 </pre>
 
 **red-sign-in.less** has to contain the styles that are overriding the styles of the Sign in button, making it red. It can look like this:
@@ -114,8 +116,8 @@ $('body').addClass('my-experiment');
 Now the interesting part. The 1st variation has to require the red button. **variation-1/homepage/index.js** will look like this:
 
 {% highlight javascript %}
-require('../../_shared/red-sign-in.less');
-require('../../_shared/add-class.js');
+require('../../shared/red-sign-in.less');
+require('../../shared/add-class.js');
 {% endhighlight %}
 
 The 2nd variation has to require the logo change. **variation-2/homepage/index.js**:
@@ -135,7 +137,10 @@ require('../../variation-2/homepage');
 require('./changing-footer.js');
 {% endhighlight %}
 
-Each variation can be tested locally by running ``foso serve`` from the variation's root directory (e.g, my-experiment/variation-1/). The files will be bundled and minified into the dist folders of each variation. And finally, the bundled code can be easily copy/pasted to Optimizely.
+Each variation can be tested locally by running ``foso serve`` from the variation's root directory (e.g, my-experiment/variation-1/). The files will be bundled and saved into the ``_build/`` folders of each variation.
+
+When the code is ready it can be bundled and minified by running ``foso build -m``.
+The bundled code can be easily copy/pasted to Optimizely.
 
 No more code duplication!
 
