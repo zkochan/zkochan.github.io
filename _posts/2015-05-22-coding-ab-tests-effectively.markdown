@@ -123,8 +123,8 @@ require('../../shared/add-class.js');
 The 2nd variation has to require the logo change. **variation-2/homepage/index.js**:
 
 {% highlight javascript %}
-require('../../_shared/new-logo.less');
-require('../../_shared/add-class.js');
+require('../../shared/new-logo.less');
+require('../../shared/add-class.js');
 {% endhighlight %}
 
 The third variation can reuse the code from the 1st and 2nd variations and add its own changes upon them.
