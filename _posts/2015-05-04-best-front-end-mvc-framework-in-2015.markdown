@@ -8,7 +8,7 @@ comments: true
 
 Before writing my first [single-page application (SPA)][spa-wiki] I’ve spent a lot of time researching all the existing, most popular front-end MVC frameworks. After reading a few posts and comparisons, I decided to learn [AngularJS][angular]. It seems that right now AngularJS is the most popular framework for writing SPAs.
 
-#AngularJS
+##AngularJS
 
 AngularJS was the first **real** front-end framework that I managed to learn. Before it, I was trying to understand [Backbone][backbone] several times, but for some reason it seemed to me too complex. AngularJS was pretty straightforward once I got through it’s official [tutorial][angular-tutorial].
 
@@ -27,7 +27,7 @@ After using Angular for a few months I recognized many of its stengths and weakn
 * the learning curve is pretty huge.
 * the Angular framework is very big. It takes quite a lot of time when an Angular SPA is first opened in the browser.
 
-#What is the future?
+##What is the future?
 
 I started to search for alternatives. The first alternative that I’ve found was [Vue.js][vue-js]. However, after going through it’s guide, I realized that it is quite similar to Angular, so I continued my searches.
 
@@ -36,7 +36,7 @@ After a few days of blog readings I came to the conclusion that the future of we
 Even though [Meteor][meteor] seems to be the best stack for building isomorphic apps up to date, I don’t like it, because it is too monolithic. I like to design my applications as sets of microservices. Meteor doesn’t seem to be designed for such use cases.
 
 
-#ReactJS and RiotJS
+##ReactJS and RiotJS
 
 There are many articles in the net about how [React][react] is better than Angular. E.g., [this][angular-vs-react] is the last one that I was reading. That’s why I started to investigate the concept of ReactJS. After reading through its documentation I realized that:
 
@@ -50,7 +50,7 @@ In order to have a complete analogue of AngularJS, React has to be combined with
 
 Maybe this makes ReactJS and RiotJS more flexible and gives more freedom to the developers. However, I wouldn’t like to spend days on finding the best building blocks for a React application. And even after finding the building blocks I would have to design a good app structure. Angular has all of this out of the box. Furthermore, there are dozens of ready apps on GitHub, which I can use as examples.
 
-#Mithril
+##Mithril
 
 IMHO, [Mithril][mithril] is the best framework that I’ve found so far.
 
@@ -65,7 +65,7 @@ Even though Mithril seems to be really cool, it is not as popular as other front
 
 I think, the future is behind Mithril or something like Mithril, but we are not quite there yet. For now, AngularJS seems to be the <s>safer</s> easier way to go.
 
-# Summary
+## Summary
 
 Unfortunately, currently there isn’t a perfect framework for writing single-page apps. Each framework has its strong and weak sides, so the decision has to be made separately for each application developed.
 

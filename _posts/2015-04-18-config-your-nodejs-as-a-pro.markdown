@@ -7,7 +7,7 @@ comments: true
 ---
 When I started to develop apps using NodeJS, I wondered, how should I save my configs? It seems that everyone does it in his own way.
 
-# The most popular solution - JS files
+## The most popular solution - JS files
 
 The most widespread solution is to create a separate js file for each evironment. Each of those js files export an Object containing all the configs for the corresponding environment.
 This is the method suggested by the popular [MEAN.JS][mean-js] and [MEAN.IO][mean-io] projects.
@@ -23,7 +23,7 @@ You might wonder, why to use js files for storing configs? Why not just JSON? I 
 2. JSON files are uglier than JS files?!
 
 
-# Node-convict - JSON files
+## Node-convict - JSON files
 
 [Node-convict][node-convict] tries to solve two problems in the NodeJS configuration area:
 
@@ -39,7 +39,7 @@ They do it by using a **config schema**. A config schema is describing
 Having this schema, allows to move the configs to JSON files.
 
 
-# But what if I don't like JSON files?
+## But what if I don't like JSON files?
 
 I don't think that JSON files are ugly (XML is).
 JSON files are cool, and I have nothing against them. However, there is also another language, designed for describing data, which is both cool and beautiful. It is called [YAML][yaml].

@@ -21,7 +21,7 @@ In most cases it is enough to use front-end side testing, and there are many ser
 * [Visual Website Optimizer][vwo]
 * [Maxymiser][maxymiser]
 
-#How does front-end A/B testing work?
+##How does front-end A/B testing work?
 
 Front-end A/B testing is great, because it doesn't require changes in the app's codebase. In a nutshell, front-end A/B tests are just javascripts injected into the page.
 
@@ -41,7 +41,7 @@ If a dev is lazy, he will just copy/paste the code into the different variations
 
 But there's a better solution that I'll explain later.
 
-#Browserify + Livereload
+##Browserify + Livereload
 
 Developing experiments using Optimizely's built-in editor has many negative sides:
 
@@ -60,7 +60,7 @@ These are not issues that Optimizely has to solve. In fact, these problems are a
 
 [Livereload][livereload] can reload the page in the browser when the experiment is updated.
 
-#Foso means cool
+##Foso means cool
 
 It is very easy to create a simple NodeJS app that will do all the hard work and bundle the experiment code. When that's ready, all that remains to be done is adding two links to the page on which the experiment has to be applied:
 
@@ -69,7 +69,7 @@ It is very easy to create a simple NodeJS app that will do all the hard work and
 
 And the good news is: I've already created that simple NodeJS app! It is called [Foso][foso] and uses some simple conventions to bundle scripts for multipage experiments.
 
-#How to use Foso with Optimizely?
+##How to use Foso with Optimizely?
 
 Lets return to our example, where we wanted to do 3 variations in one experiment, and reuse some of the code. In order to implement it with Foso, we can use this folder structure:
 

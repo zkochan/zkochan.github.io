@@ -18,7 +18,7 @@ My impressions are negative, so far. We have a Git repository for our snippets t
 
 This process is bad in many ways.
 
-# It kills the fun of web development
+## It kills the fun of web development
 
 The reason I like web development is because it is so fast and easy. When writing some SQL scripts, it is hard to test them. But when writing front-end code, it is just a browser reload. And, when using [livereload][lr], it is
 even automatic.
@@ -26,18 +26,18 @@ even automatic.
 However, when writing code in Adobe DTM's web interface, the code has to be saved twice and then the cache should be updated and then we can see our changes. But it is a bad idea to write the code in Adobe DTM, because it
 can brake stuff for other people. It is possible to create a different property, which will be used only by the localy running website. But thats just more complexity and copy pasting.
 
-# It creates conflicts
+## It creates conflicts
 
 When several devs are doing something in Adobe DTM they frequently rewrite the changes of each other.
 
-# A better alternative?
+## A better alternative?
 
 Some say that [Google's Tag Manager][google-tm] is better. They say that Google Tag Manager has an API for pushing changes. They also say that it's event based snippet injection is more intuitive than the methods used by
 Adobe DTM (I am not competent in these details. Thats just what I heard at work).
 
 Google Tag Manager may or may not be better than Adobe DTM. However, I don't like the whole concept of these tools. I don't understand why would a developer need a complex UI to do simple things.
 
-# What do we actually need?
+## What do we actually need?
 
 What problems are trying to solve tag managers? IMHO, they want to solve just one problem: **updating JavaScript on the page without redeploying the website**.
 
