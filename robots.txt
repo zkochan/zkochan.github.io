@@ -2,4 +2,4 @@
 
 User-agent: *
 
-Sitemap: http://zkochan.github.com/sitemap.xml
+Sitemap: http://www.kochan.io/sitemap.xml
