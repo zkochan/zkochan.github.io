@@ -4,10 +4,12 @@ email: zoltan.kochan@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   My name is Zoltan Kochan. I am a full stack web developer. This is my
   blog about programming and technologies.
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: / # the subpath of your site, e.g. /blog/
 url: "http://www.kochan.io" # the base hostname & protocol for your site
 twitter_username: ZoltanKochan
 github_username:  zkochan
+
+paginate: 5
 
 # Build settings
 markdown: kramdown
