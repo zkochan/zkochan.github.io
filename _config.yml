@@ -16,4 +16,3 @@ markdown: kramdown
 
 gems:
   - jekyll-sitemap
-  - jekyll-time-to-read

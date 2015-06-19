@@ -12,7 +12,8 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }} · {{ post.content | reading_time_as_i }} read</span>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+      {{ content }}</span>
 
     {% if post.description %}{{ post.description | strip_html | strip_newlines | truncate: 250 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 250 }}{% endif %}
   </div>
