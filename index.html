@@ -11,9 +11,19 @@ title: Home
         {{ post.title }}
       </a>
     </h1>
+    
+    {% capture read_time %}
+      {{ post.content | number_of_words | divided_by: 180 }}
+    {% endcapture %}
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-      {{ content }}</span>
+    <span class="post-date">
+      {{ post.date | date_to_string }} ·
+      {% if read_time != '0' %}
+        {{ read_time }}
+      {% else %}
+        1
+      {% endif %} min read
+    </span>
 
     {% if post.description %}{{ post.description | strip_html | strip_newlines | truncate: 250 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 250 }}{% endif %}
   </div>
