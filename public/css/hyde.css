@@ -250,7 +250,9 @@ a.sidebar-nav-item:focus {
 }
 
 
-/* custome styles */
+/*
+ * Custome styles
+ */
 
 .ava {
   border-radius: 50%;
@@ -259,4 +261,10 @@ a.sidebar-nav-item:focus {
 
 .social-container {
   margin-top: 1rem;
+}
+
+.suggest-edit {
+  color: #9a9a9a;
+  margin-bottom: 1rem;
+  font-size: .8rem;
 }
