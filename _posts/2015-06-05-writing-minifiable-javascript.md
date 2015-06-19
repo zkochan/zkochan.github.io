@@ -5,6 +5,7 @@ date: 2015-06-05 21:49:00
 categories: javascript
 comments: true
 published: true
+permalink: /javascript/2015/06/05/writing-minifiable-javascript.html
 ---
 
 There are situations when we want to have as small JavaScript files as possible. JavaScript compressors like [UglifyJS][UglifyJS] can reduce the size of JavaScript source code multiple times. However, they can compress it a lot more effectively with some help!

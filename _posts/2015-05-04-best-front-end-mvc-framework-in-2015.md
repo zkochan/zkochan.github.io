@@ -4,6 +4,7 @@ title:  "What is the best front-end MVC framework in 2015?"
 date:   2015-05-04 18:27:00
 categories: mvc
 comments: true
+permalink: /mvc/2015/05/04/best-front-end-mvc-framework-in-2015.html
 ---
 
 Before writing my first [single-page application (SPA)][spa-wiki] I’ve spent a lot of time researching all the existing, most popular front-end MVC frameworks. After reading a few posts and comparisons, I decided to learn [AngularJS][angular]. It seems that right now AngularJS is the most popular framework for writing SPAs.

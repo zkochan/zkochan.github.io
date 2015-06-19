@@ -5,6 +5,7 @@ date: 2015-05-22 22:35:00
 categories: ab
 comments: true
 published: true
+permalink: /ab/2015/05/22/coding-ab-tests-effectively.html
 ---
 
 

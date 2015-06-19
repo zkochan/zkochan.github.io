@@ -2,7 +2,7 @@
 layout: post
 title: How to dynamically create an IFrame
 date: 2015-06-16 19:59:00
-categories: javascript, iframe
+categories: javascript
 comments: true
 published: true
 ---

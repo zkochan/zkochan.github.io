@@ -4,6 +4,7 @@ title:  "DTM killer?"
 date:   2015-04-25 11:59:00
 categories: ideas
 comments: true
+permalink: /ideas/2015/04/25/tag-manager-killer.html
 ---
 
 The company that I am currently working at is using [Adobe DTM][adobe-dtm] for managing tags/pixels. I wasn't involved in the process of adopting it but I am actively using it now (unfortunately).
