@@ -63,11 +63,11 @@ Using this solution, here's how the final IFrame creating code will look like:
 var iframe = document.createElement('iframe');
 document.body.appendChild(iframe);
 
-iframe.src = 'javascript:void((function(){var script = document.createElement('script');' +
+iframe.src = 'javascript:void((function(){var script = document.createElement(\'script\');' +
   'script.innerHTML = "(function() {' +
   'document.open();document.domain=\'' + document.domain +
   '\';document.close();})();";' +
-  document.write("<head>" + script.outerHTML + </head><body></body>);})())';
+  'document.write("<head>" + script.outerHTML + "</head><body></body>);})())';
 
 iframe.contentWindow.document.write('<div>foo</div>');
 {% endhighlight %}
