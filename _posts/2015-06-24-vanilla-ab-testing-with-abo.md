@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vanilla A/B testing with Abo
-date: 2015-06-17 01:32:00
+date: 2015-06-24 21:47:00
 categories: ab
 comments: true
 published: true
