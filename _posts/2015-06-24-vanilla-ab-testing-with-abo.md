@@ -5,6 +5,7 @@ date: 2015-06-24 21:47:00
 categories: ab
 comments: true
 published: true
+demoScript: /demo/ab-demo.js
 ---
 
 
@@ -112,7 +113,7 @@ Once you answer all the questions, your project will be created and all the depe
 
 Once you have the standard Abo project generated, you can bundle the Abo scripts by running `foso build -m` or self-host them by running `foso serve`. [Foso][] is a static server that bundles resources using some simple conventions. If you don't have it already, you can install it by running `npm install -g foso`.
 
-Foso will bundle your files into the `dist` directory. A simple project will have only one file bundled into that folder: `index.js`. That file will have to be added to every single page of your website. If you run `foso serve` then Foso will run a static server hosting the snippets from the `dist` directory.
+Foso will bundle your files into the `dist` directory. A simple project will have only one file bundled into that folder: `index.js`. That file will have to be added to every single page of your website. If you run `foso serve` then foso will run a static server hosting the snippets from the `dist` directory.
 
 The standard address of the static server is `http://localhost:1769/`, so you can just add a reference to `http://localhost:1769/index.js` to your website in order to test Abo locally.
 
@@ -125,7 +126,7 @@ Of course, during developing a new experiment you wil want it to be active on th
 
 Have you noticed that the file URL is the same as the one you already added to the page? You can enter different modes by running the foso server in different directories of your A/B testing project. If you run `foso serve` in the root directory, you can test the overall traffic allocation, experiment assignment, execution, etc. But if you run `foso serve` inside an experiment's folder, you'll enter to that experiment's demo mode.
 
-The great thing about Foso is that it automatically adds a livereload link to the page, so when you update your experiment, the page will automatically reload.
+The great thing about foso is that it automatically adds a livereload link to the page, so when you update your experiment, the page will automatically reload.
 
 Abo gives you complete freedom to implement your experiments the way you want. If you'd like to see some examples and best practices, check out the [TodoMVC A/B][todo-ab] testing project.
 

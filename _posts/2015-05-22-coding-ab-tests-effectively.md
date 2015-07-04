@@ -68,11 +68,11 @@ It is very easy to create a simple NodeJS app that will do all the hard work and
 * a link to the JavaScript that has to modify the page
 * a link to LiveReload, which will reload the page each time the script is updated
 
-And the good news is: I've already created that simple NodeJS app! It is called [Foso][foso] and uses some simple conventions to bundle scripts for multipage experiments.
+And the good news is: I've already created that simple NodeJS app! It is called [foso][] and uses some simple conventions to bundle scripts for multipage experiments.
 
-##How to use Foso with Optimizely?
+##How to use foso with Optimizely?
 
-Lets return to our example, where we wanted to do 3 variations in one experiment, and reuse some of the code. In order to implement it with Foso, we can use this folder structure:
+Lets return to our example, where we wanted to do 3 variations in one experiment, and reuse some of the code. In order to implement it with foso, we can use this folder structure:
 
 <pre>
 my-experiment
