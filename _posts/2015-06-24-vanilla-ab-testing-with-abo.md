@@ -5,7 +5,7 @@ date: 2015-06-24 21:47:00
 categories: ab
 comments: true
 published: true
-demoScript: /demo/ab-demo.js
+demoScript: /public/demo/ab-demo.js
 ---
 
 
