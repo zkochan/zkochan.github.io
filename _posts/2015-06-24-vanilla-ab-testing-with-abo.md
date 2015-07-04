@@ -40,13 +40,13 @@ var abo = require('abo');
 var expt = {
   id: '1',
   name: 'Mobile experiment',
-  
+
   /*
    * The experiment will get 10% of the traffic for
    * which the assignment condition will be satisfied
    */
   traffic: .1,
-  
+
   /*
    * Assignment Condition
    * will return true only if executed on a cell phone
@@ -57,7 +57,7 @@ var expt = {
     }
     return matchMedia('(max-width: 470px)').matches;
   },
-  
+
   /*
    * This method will be executed only if the experiment
    * will be assigned to the user
@@ -85,7 +85,7 @@ Big projects can have dozens of A/B tests running or under development. Hence, i
 npm install -g yo
 {% endhighlight %}
 
-Yeoman is an amazing tool that helps kikstart new projects! If you haven't used it so far, check out the list of their [generators][]. You'll probably find a lot of usefull ones for your needs.
+Yeoman is an amazing tool that helps kick-start new projects! If you haven't used it so far, check out the list of their [generators][]. You'll probably find a lot of usefull ones for your needs.
 
 Now that you have Yeoman installed, you can install Yeoman generator for Abo:
 
@@ -112,7 +112,7 @@ Once you answer all the questions, your project will be created and all the depe
 
 Once you have the standard Abo project generated, you can bundle the Abo scripts by running `foso build -m` or self-host them by running `foso serve`. [Foso][] is a static server that bundles resources using some simple conventions. If you don't have it already, you can install it by running `npm install -g foso`.
 
-Foso will bundle your files into the `_build` directory. A simple project will have only one file bundled into that folder: `index.js`. That file will have to be added to every single page of your website. If you run `foso serve` then Foso will run a static server hosting the snippets from the `_build` directory.
+Foso will bundle your files into the `dist` directory. A simple project will have only one file bundled into that folder: `index.js`. That file will have to be added to every single page of your website. If you run `foso serve` then Foso will run a static server hosting the snippets from the `dist` directory.
 
 The standard address of the static server is `http://localhost:1769/`, so you can just add a reference to `http://localhost:1769/index.js` to your website in order to test Abo locally.
 
@@ -121,7 +121,7 @@ The standard address of the static server is `http://localhost:1769/`, so you ca
 
 To create your first experiment, you can run `yo abo:expt`. Yeoman will create a directory for your experiment in the root directory of your A/B project.
 
-Of course, during developing a new experiment you wil want it to be active on the page, no matter what. Hence you won't need the Abo library and all the other active experiments loaded. Luckily, your yet empty experiment, is already configured to allow independent usage! Go to the experiment's directory and run `foso serve`. Foso will bundle the file called `fosofile.js` and rename it to `index.js`. This file will be available under `http://localhost:1769/index.js`.
+Of course, during developing a new experiment you wil want it to be active on the page, no matter what. Hence you won't need the Abo library and all the other active experiments loaded. Luckily, your yet empty experiment, is already configured to allow independent usage! Go to the experiment's directory and run `foso serve`. Foso will bundle the file called `_bundle.js` and rename it to `index.js`. This file will be available under `http://localhost:1769/index.js`.
 
 Have you noticed that the file URL is the same as the one you already added to the page? You can enter different modes by running the foso server in different directories of your A/B testing project. If you run `foso serve` in the root directory, you can test the overall traffic allocation, experiment assignment, execution, etc. But if you run `foso serve` inside an experiment's folder, you'll enter to that experiment's demo mode.
 
@@ -132,7 +132,7 @@ Abo gives you complete freedom to implement your experiments the way you want. I
 
 ## How to release A/B tests to production?
 
-Everything that you'll have to export to production will be bundled in the `_build` directory. You can manually copy/paste those files to your production server.
+Everything that you'll have to export to production will be bundled in the `dist` directory. You can manually copy/paste those files to your production server.
 
 Although, there is a better solution of delivering your changes to production. The Abo generator creates your project with a `ung.json` config file. [Ung][] is a static resources manager. In a nutshell, it is a simple NodeJS server that hosts static resources. What makes it a manager? The fact that it can update resources on the fly.
 
@@ -161,11 +161,11 @@ Of course, it is harder to maintain your own A/B testing solution, when there ar
 [opt]: https://www.optimizely.com/
 [Google Analytics]: http://www.google.com/analytics/
 [segments]: https://support.google.com/analytics/answer/3123951?hl=en
-[abo]: https://github.com/zkochan/abo
-[abo-demo]: https://github.com/zkochan/abo-demo
-[abo-generator]: https://github.com/zkochan/generator-abo
+[abo]: https://github.com/abojs/abo
+[abo-demo]: https://github.com/abojs/abo-demo
+[abo-generator]: https://github.com/abojs/generator-abo
 [yeoman]: http://yeoman.io/
 [generators]: http://yeoman.io/generators/
-[foso]: https://github.com/zkochan/foso
-[todo-ab]: https://github.com/zkochan/todomvc-ab
+[foso]: https://github.com/fosojs/foso
+[todo-ab]: https://github.com/abojs/todomvc-ab
 [ung]: https://github.com/zkochan/ung

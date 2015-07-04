@@ -138,7 +138,7 @@ require('../../variation-2/homepage');
 require('./changing-footer.js');
 {% endhighlight %}
 
-Each variation can be tested locally by running ``foso serve`` from the variation's root directory (e.g, my-experiment/variation-1/). The files will be bundled and saved into the ``_build/`` folders of each variation.
+Each variation can be tested locally by running ``foso serve`` from the variation's root directory (e.g, my-experiment/variation-1/). The files will be bundled and saved into the ``dist/`` folders of each variation.
 
 When the code is ready it can be bundled and minified by running ``foso build -m``.
 The bundled code can be easily copy/pasted to Optimizely.
@@ -157,4 +157,4 @@ No more code duplication!
 [browserify-transform]: https://github.com/substack/node-browserify/wiki/list-of-transforms
 [less]: http://lesscss.org/
 [jade]: http://jade-lang.com/
-[foso]: https://github.com/zkochan/foso
+[foso]: https://github.com/fosojs/foso
