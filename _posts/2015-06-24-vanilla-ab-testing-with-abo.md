@@ -159,6 +159,17 @@ Of course, it is harder to maintain your own A/B testing solution, when there ar
 * Little learning curve
 
 
+# Demo
+
+Currently you are on the <strong id="theme-name"></strong>.
+
+Abo is working on this page. It is changing the theme of [Hyde][]. Try to open this page in incognito and you might see a different theme applied to the page. Or try to remove the `abo.x` cookie and reload the page.
+
+As you can see, after you've been assigned to a particular theme, you'll be staying on that theme because the experiment ID is saved to the cookies.
+
+[This]({{site.github_repository}}/blob/master/public/demo/ab-demo.js) is the script that is changing the page.
+
+
 [opt]: https://www.optimizely.com/
 [Google Analytics]: http://www.google.com/analytics/
 [segments]: https://support.google.com/analytics/answer/3123951?hl=en
@@ -170,3 +181,4 @@ Of course, it is harder to maintain your own A/B testing solution, when there ar
 [foso]: https://github.com/fosojs/foso
 [todo-ab]: https://github.com/abojs/todomvc-ab
 [ung]: https://github.com/zkochan/ung
+[hyde]: https://github.com/poole/hyde
