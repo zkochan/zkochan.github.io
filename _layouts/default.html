@@ -11,8 +11,13 @@
       {{ content }}
     </div>
 
-    {% if page.demoScript %}
-    <script src="{{ page.demoScript }}"></script>
+    {% if page.demo %}
+      {% if page.demo.script %}
+      <script src="{{ page.demo.script }}"></script>
+      {% endif %}
+      {% if page.demo.style %}
+      <link src="{{ page.demo.style }}" rel="stylesheet"/>
+      {% endif %}
     {% endif %}
   </body>
 </html>
