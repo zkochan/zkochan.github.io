@@ -6,7 +6,8 @@ categories: ab
 comments: true
 published: true
 demo:
-  script: /public/demo/ab/ab-demo.js
+  scripts:
+    - /public/demo/ab/ab-demo.js
 ---
 
 

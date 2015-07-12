@@ -4,10 +4,13 @@ title: Surveys using Google Spreadsheets as a database
 date: 2015-07-12 11:14:00
 categories: javascript
 comments: true
-published: false
+published: true
 demo:
-  script: /public/demo/meeky/index.js
-  style: /public/demo/meeky/index.css
+  scripts:
+    - //ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
+    - /public/demo/meeky/index.js
+  styles:
+    - /public/demo/meeky/index.css
 ---
 
 Frequently we need to survey our visitors. We don't bother developing our own

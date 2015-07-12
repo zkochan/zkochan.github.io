@@ -12,12 +12,12 @@
     </div>
 
     {% if page.demo %}
-      {% if page.demo.script %}
-      <script src="{{ page.demo.script }}"></script>
-      {% endif %}
-      {% if page.demo.style %}
-      <link src="{{ page.demo.style }}" rel="stylesheet"/>
-      {% endif %}
+      {% for script in page.demo.scripts %}
+      <script src="{{ script }}"></script>
+      {% endfor %}
+      {% for style in page.demo.styles %}
+      <link href="{{ style }}" rel="stylesheet"/>
+      {% endfor %}
     {% endif %}
   </body>
 </html>
