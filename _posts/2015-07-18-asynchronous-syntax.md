@@ -18,14 +18,14 @@ that we need will be created.
 The most common solution for this problem is checking if the object exists every
 several milliseconds.
 
-```js
+{% highlight JavaScript %}
 var intervalId = setInterval(function() {
   if (typeof window.foo === 'object') {
     foo.bar();
     clearInterval(intervalId);
   }
 }, 100);
-```
+{% endhighlight %}
 
 It is a hack though.
 
@@ -35,10 +35,10 @@ It is a hack though.
 Google, Optimizely, Qualaroo and many others, I believe, are all using an interesting
 technique of caching API calls. Lets see how to track an event in Optimizely:
 
-```js
+{% highlight JavaScript %}
 window.optimizely = window.optimizely || [];
 window.optimizely.push(['trackEvent', 'registration']);
-```
+{% endhighlight %}
 
 We don't need the Optimizely object at all! We pass instructions that will be executed
 once the Optimizely script is loaded.
@@ -46,19 +46,19 @@ once the Optimizely script is loaded.
 Qualaroo does the same. E.g., here's how to force Qualaroo to start the surveys in
 minimized state:
 
-```js
+{% highlight JavaScript %}
 window._kiq = window._kiq || [];
 _kiq.push(['minimizeNudge']);
-```
+{% endhighlight %}
 
 Google Analytics also caches the calls inside the `ga` function until the main
 script is not loaded. You can see it from the implementation of `ga`:
 
-```js
+{% highlight JavaScript %}
 window.ga = window.ga || function() {
   (window.ga.q = window.ga.q || []).push(arguments)
 };
-```
+{% endhighlight %}
 
 Even though this hack is very popular, I could never find an article
 about it. I didn't even know how this technique is called. Only a few days ago
@@ -86,17 +86,17 @@ object method. These can be any JavaScript value.
 
 The following code calls `_trackPageview()` using the traditional syntax:
 
-```js
+{% highlight JavaScript %}
 var pageTracker = _gat._getTracker('UA-XXXXX-X');
 pageTracker._trackPageview();
-```
+{% endhighlight %}
 
 The equivalent code in the asynchronous syntax requires two calls to `_gaq.push`.
 
-```js
+{% highlight JavaScript %}
 _gaq.push(['_setAccount', 'UA-XXXXX-X']);
 _gaq.push(['_trackPageview']);
-```
+{% endhighlight %}
 
 
 ## applyq
@@ -107,30 +107,30 @@ that allows to use the Asynchronous Syntax for any javascript objects.
 Lets see how it works on a simple `Logger` object that is just a wrapper over the
 `console` object.
 
-```js
+{% highlight JavaScript %}
 function Logger() {}
 
 Logger.prototype.log = function(msg) {
   console.log(msg);
 };
-```
+{% endhighlight %}
 
 All that we have to do in order to make it usable in an asynchronous way is to
 pass it to the `applyq` method after creation along with the array that contains
 the cached commands.
 
-```js
+{% highlight JavaScript %}
 window.logger = new Logger();
 applyq(logger, _loggerq);
-```
+{% endhighlight %}
 
 `_loggerq` will always print the messages. Immediately or after the `Logger` was
 initialized.
 
-```js
+{% highlight JavaScript %}
 window._loggerq = window._loggerq || [];
 _loggerq.push(['log', 'Hello world!']);
-```
+{% endhighlight %}
 
 
 [google-async-syntax]: https://developers.google.com/analytics/devguides/collection/gajs/
