@@ -7,9 +7,9 @@ comments: true
 published: true
 ---
 
-In a perfect world all the objects on a page would be always created when we need
+In a perfect world all the objects on a page would be always created by the time we need
 them. However, frequently some scripts are loaded asynchronously or the javascript
-code is not well structured on the page. In that case it is unknown when the object
+code is not well organized on the page. In that case it is unknown when the object
 that we need will be created.
 
 
@@ -52,7 +52,7 @@ _kiq.push(['minimizeNudge']);
 {% endhighlight %}
 
 Google Analytics also caches the calls inside the `ga` function until the main
-script is not loaded. You can see it from the implementation of `ga`:
+script is loaded. You can see it from the implementation of `ga`:
 
 {% highlight JavaScript %}
 window.ga = window.ga || function() {
@@ -116,7 +116,7 @@ Logger.prototype.log = function(msg) {
 {% endhighlight %}
 
 All that we have to do in order to make it usable in an asynchronous way is to
-pass it to the `applyq` method after creation along with the array that contains
+pass it to the `applyq` method after creation, along with the array that contains
 the cached commands.
 
 {% highlight JavaScript %}
