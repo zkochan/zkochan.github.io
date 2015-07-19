@@ -7,24 +7,23 @@ comments: true
 published: true
 ---
 
-JavaScript objects doesn't have real private properties or functions. There is
-a convention to name members intended to be private with an underscore prefix but
-that doesn't make them really private. And also, minifiers can't effectively
-obfuscate them.
+JavaScript objects don't have real private properties or functions. There is
+naming convention for members intended to be private with an underscore prefix but
+that doesn't make them really private.
 
 However, when reading the [Flux TodoMVC tutorial][flux-todomvc] I've noticed an
-interesting hack, how to simulate privacy, when the scripts are bundled with
-browserify or webpack.
+interesting hack for simulating privacy, real privacy (when the scripts are bundled with
+browserify or webpack).
 
 
 ## Private properties
 
 When the scripts are bundled with browserify, each file is wrapped with a function.
-It makes each variable local. Technically, if a file exports just one class
-declaration, all the other things in the file cam be considered the private
+As a consequence, all variable declared in the top scope are local. Technically, if a file exports just one class
+declaration, all the other things in the file can be considered the private
 properties/functions of that class.
 
-So instead of using properties of the object. Like this:
+Therefore, instead of using properties of the object, like this:
 
 {% highlight JavaScript %}
 function Foo(opts) {
@@ -49,14 +48,14 @@ function Foo(opts) {
 }
 {% endhighlight %}
 
-Maybe the code doesn't look beautiful or even logical but now `_qar` and `_qaz` are
-really private and they are not accessible through `foo._qar`, `foo._qaz`.
+Maybe the later code doesn't look beautiful or even logical but it does make `_qar` and `_qaz`
+private. They are not accessible through `foo._qar`, `foo._qaz`.
 
 
 ## Private functions
 
 The principle of private functions is almost the same with one change, private
-functions should be executed with the this of the object to which they belong.
+functions should be executed with the `this` of the object to which they belong.
 
 If normally, we would declare private functions like this:
 
@@ -93,6 +92,13 @@ Foo.prototype.helloWorld = function() {
   _log.call(this, 'Hello world!');
 }
 {% endhighlight %}
+
+
+## Summary
+
+It is possible to have privacy in JavaScript objects and it has one great benefit.
+Using the methods described in this article makes the private members highly minifiable
+because everything that is stored in `this` can't be obfuscated.
 
 
 [flux-todomvc]: http://facebook.github.io/flux/docs/todo-list.html
