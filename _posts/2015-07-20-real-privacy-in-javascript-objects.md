@@ -4,7 +4,7 @@ title: Real privacy in JavaScript objects
 date: 2015-07-20 02:19:00
 categories: javascript
 comments: true
-published: true
+published: false
 ---
 
 JavaScript objects don't have real private properties or functions. There is a
