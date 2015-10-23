@@ -25,7 +25,7 @@ The reason I like web development is because it is so fast and easy. When writin
 even automatic.
 
 However, when writing code in Adobe DTM's web interface, the code has to be saved twice and then the cache should be updated and then we can see our changes. But it is a bad idea to write the code in Adobe DTM, because it
-can brake stuff for other people. It is possible to create a different property, which will be used only by the localy running website. But thats just more complexity and copy pasting.
+can break stuff for other people. It is possible to create a different property, which will be used only by the locally running website. But thats just more complexity and copy pasting.
 
 ## It creates conflicts
 
