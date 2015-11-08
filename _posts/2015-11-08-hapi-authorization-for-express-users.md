@@ -65,8 +65,45 @@ request.login({
 });
 {% endhighlight %}
 
-What makes this `request.login` method great is that now you can use humble-auth for email registration. However, you can also use it with [bell][] (which is a third party login plugin for hapi), to authenticate users through Facebook, Twitter or other OAuth providers!
+What makes this `request.login` method great is that now you can use humble-auth for email registration. However, you can also use it with [bell][] (which is a third party login plugin for hapi), to authenticate users through Facebook, Twitter or other OAuth providers! To do so, you'll just have to log the users in with humble-auth in the bell strategies callbacks.
 
+For instance, for the Facebook strategy you can do:
+
+{% highlight JavaScript %}
+server.auth.strategy('facebook', 'bell', {
+  provider: 'facebook',
+  password: 'j02oal10k1ns',
+  clientId: '42423840574399823',
+  clientSecret: 'f30g34gj3papjf34nvejsdsd443t'
+});
+
+/* handle the callback from Facebook */
+server.route({
+  path: '/auth/facebook',
+  method: 'GET',
+  config: {
+    auth: 'facebook',
+    pre: [humbleSession.pre],
+    handler: function(request, reply) {
+      if (request.pre.session.user) {
+        /* if the user is logged in attach the new Facebook profile to his account */
+      } else {
+        /* create a new user account */
+        /* and log the new user in */
+        request.login(user, function() {
+          reply.redirect('/');
+        });
+      }
+      /* adding the user passed through request.auth.credentials to an existing account if the user is logged in or */
+    }
+  }
+});
+{% endhighlight %}
+
+
+## SiteGate
+
+I hope this short article has provided you with some basic understanding about how to authenticate in Hapi like in Express. To see a complete working example of an application using this technic, visit the [SiteGate repo][]. SiteGate is an authentication and account management website implemented using Hapi and humble-auth.
 
 
 [express]: http://expressjs.com/
@@ -86,3 +123,4 @@ What makes this `request.login` method great is that now you can use humble-auth
 [route pre]: http://hapijs.com/api#route-prerequisites
 [humble-auth]: https://github.com/zkochan/humble-auth
 [bell]: https://github.com/hapijs/bell
+[SiteGate repo]: https://github.com/sitegate/sitegate
