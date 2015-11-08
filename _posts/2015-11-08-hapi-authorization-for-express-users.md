@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hapi authentication/authorization for Express users"
-date:   2015-08-11 16:25:00
+date:   2015-11-08 16:25:00
 categories: nodejs
 comments: true
 ---
