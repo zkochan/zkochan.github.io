@@ -27,24 +27,7 @@ My idea was to use the same technic that is used by Passport: keeping credential
 
 Humble-session got its name because unlike the express-session, it is fetched only when needed (express-session is fetched at every request). To fetch the session, you'll have to use a [prerequisite][route pre] in your route:
 
-{% highlight JavaScript %}
-var sessionPre = require('humble-session').pre;
-
-exports.register = function(server, options, next) {
-  server.route({
-    method: 'GET',
-    path: '/get-msg-from-session',
-    config: {
-      pre: [sessionPre],
-      handler: function(req, reply) {
-        reply(req.pre.session.msg);
-      }
-    }
-  });
-
-  next();
-};
-{% endhighlight %}
+<script src="https://gist.github.com/zkochan/9448753e3c8205eb1844.js?file=fetch-session.js"></script>
 
 
 ### humble-auth
@@ -53,52 +36,13 @@ exports.register = function(server, options, next) {
 
 Once humble-auth is registered, it extends the `request` object with two new methods: `login` and `logout`. Hence, to log a user in, you can just path an object with the user credentials:
 
-{% highlight JavaScript %}
-/* inside a route */
-request.login({
-  id: user.id
-}, function(err) {
-  if (err) {
-    return reply(Boom.wrap(err));
-  }
-  reply.redirect('/some-private-page');
-});
-{% endhighlight %}
+<script src="https://gist.github.com/zkochan/9448753e3c8205eb1844.js?file=login.js"></script>
 
 What makes this `request.login` method great is that now you can use humble-auth for email registration. However, you can also use it with [bell][] (which is a third party login plugin for hapi), to authenticate users through Facebook, Twitter or other OAuth providers! To do so, you'll just have to log the users in with humble-auth in the bell strategies callbacks.
 
 For instance, for the Facebook strategy you can do:
 
-{% highlight JavaScript %}
-server.auth.strategy('facebook', 'bell', {
-  provider: 'facebook',
-  password: 'j02oal10k1ns',
-  clientId: '42423840574399823',
-  clientSecret: 'f30g34gj3papjf34nvejsdsd443t'
-});
-
-/* handle the callback from Facebook */
-server.route({
-  path: '/auth/facebook',
-  method: 'GET',
-  config: {
-    auth: 'facebook',
-    pre: [humbleSession.pre],
-    handler: function(request, reply) {
-      if (request.pre.session.user) {
-        /* if the user is logged in attach the new Facebook profile to his account */
-      } else {
-        /* create a new user account */
-        /* and log the new user in */
-        request.login(user, function() {
-          reply.redirect('/');
-        });
-      }
-      /* adding the user passed through request.auth.credentials to an existing account if the user is logged in or */
-    }
-  }
-});
-{% endhighlight %}
+<script src="https://gist.github.com/zkochan/9448753e3c8205eb1844.js?file=facebook-strategy.js"></script>
 
 
 ## SiteGate
