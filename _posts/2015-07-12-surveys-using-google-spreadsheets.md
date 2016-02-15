@@ -15,17 +15,17 @@ demo:
 
 Frequently we need to survey our visitors. We don't bother developing our own
 surveying tool because there are already lots of them. Mostly payed but cheaper
-then developing your own.
+than developing your own.
 
 
 ## Google Forms?
 
-From the other side, there is [Google Forms][]. Although Google Forms are
-completely free, they cannot integrate into your website. You must have a link
-to the surveying page. And that surveying page is not even customizable. All
+On the other hand, there is [Google Forms][]. Although Google Forms are
+completely free, they cannot integrate into your website, you must have a link
+to the surveying page. Unfortunately that surveying page is not even customizable. All
 you can do is select from the several templates that are offered.
 
-Payed services win the bottle against Google Forms. However, there is one thing
+Payed services win the battle against Google Forms. However, there is one thing
 in Google Forms that we can use to easier develop our surveying tool! The data
 storage. Google Forms are saving the answers to the surveys in Google Spreadsheets.
 
@@ -34,7 +34,7 @@ storage. Google Forms are saving the answers to the surveys in Google Spreadshee
 
 The idea of writing a survey tool that will save the answers to Google Spreadsheets
 came to me when I've read [Martin Hawksey's][Martin Hawksey] article
-[Google Sheets as a Database][]. After reading that article I thought, brilliant
+[Google Sheets as a Database][]. After reading that article I thought, brilliant,
 now I can use the back-end of Google Forms and implement my own front-end.
 
 So lets start with implementing the back-end as described in Martin Hawkin's
@@ -46,7 +46,7 @@ saved. In your new sheet, click on `Tools > Script editor...`.
 When you have your new Google Script Code project opened, paste this code to the
 `Code.gs` file.
 
-{% highlight JavaScript %}
+```javascript
 //  Enter sheet name where data is to be written below
 var SHEET_NAME = "Sheet1";
 
@@ -91,13 +91,13 @@ function handleResponse(e) {
     sheet.getRange(nextRow, 1, 1, row.length).setValues([row]);
     // return json success results
     return ContentService
-          .createTextOutput(JSON.stringify({"result":"success", "row": nextRow}))
-          .setMimeType(ContentService.MimeType.JSON);
-  } catch(e){
+      .createTextOutput(JSON.stringify({"result":"success", "row": nextRow}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (e){
     // if error return this
     return ContentService
-          .createTextOutput(JSON.stringify({"result":"error", "error": e}))
-          .setMimeType(ContentService.MimeType.JSON);
+      .createTextOutput(JSON.stringify({"result":"error", "error": e}))
+      .setMimeType(ContentService.MimeType.JSON);
   } finally { //release lock
     lock.releaseLock();
   }
@@ -107,7 +107,7 @@ function setup() {
     var doc = SpreadsheetApp.getActiveSpreadsheet();
     SCRIPT_PROP.setProperty("key", doc.getId());
 }
-{% endhighlight %}
+```
 
 After pasting the code, click on `Run > setup`.
 
