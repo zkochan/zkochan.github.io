@@ -46,6 +46,8 @@ saved. In your new sheet, click on `Tools > Script editor...`.
 When you have your new Google Script Code project opened, paste this code to the
 `Code.gs` file.
 
+<script src="https://gist.github.com/zkochan/e5fc3c999875a6da0d5b.js"></script>
+
 ```javascript
 //  Enter sheet name where data is to be written below
 var SHEET_NAME = "Sheet1";
