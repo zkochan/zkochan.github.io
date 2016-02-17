@@ -6,7 +6,7 @@ categories: javascript
 comments: true
 ---
 
-JavaScript is a powerful and sometimes weird language and it has a lot of interesting idioms.
+JavaScript is a powerful and sometimes weird language and it has a lot of interesting idioms (about what is [programming idiom](https://en.wikipedia.org/wiki/Programming_idiom)).
 My intention in this article is just to show some of the most popular and widely used javascript idioms.
 I won't focus on whether it is good or bad to use some or any of them.
 
@@ -29,7 +29,7 @@ Essentially it is a shorter way to write `Boolean(foo)`.
 The [arguments object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments)
 can be used to access the arguments passed to the function. However, it is not an Array so it doesn't have
 Array properties except `length`. The `Array.prototype.slice.call(arguments)` idiom is used very frequently
-to convert the arguments object to an actual array.
+to convert the argument's object to an actual array.
 
 ```js
 (function() {
@@ -142,3 +142,8 @@ console.log('Hello world!')
 //> Hello world!
 //> log message from next tick
 ```
+
+
+# `void 0` instead of `undefined`
+
+Frequently minifiers substitute `undefined` usages with `void 0`, which will return `undefined`. It is just a shorter way to get `undefined`.
