@@ -14,23 +14,14 @@ However, writing a good npm module is not that easy. Here you'll find some sugge
 
 A good npm module will have tests. It doesn't matter what test framework will you use but you'll have to add the test running command to the scripts section of `package.json`. E.g., if you use [mocha](https://mochajs.org/), you'll have something like this:
 
-```json
-"scripts": {
-  "test": "mocha test/{**/,/}*.js"
-}
-```
+<script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=test-script.json"></script>
 
 
 ## Configure continuous integration
 
 If your module is open source, your best CI choice will probably be [Travis](https://travis-ci.org/). Travis is completely free for open source projects. In order to configure your project for running on travis, just add a minimal `.travis.yml` file to the root directory of your module:
 
-```yml
-language: node_js
-sudo: false
-node_js:
-  - v5
-```
+<script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=.travis.yml"></script>
 
 Once you have it, travis will automatically run **npm test** on your module, every time you push. If it fails, you'll recive an email.
 
@@ -44,18 +35,11 @@ If your project is open source, you can use [coveralls](https://coveralls.io/), 
 For generating the coverage reports, you can use [istanbul](https://github.com/gotwarlost/istanbul): `npm install istanbul --save`. Once you have it
 in your dev dependencies, you can add a few tasks to the scripts section that will generate the coverage reports and send them to coveralls:
 
-```json
-"coverage": "istanbul cover _mocha test/{**/,/}*.js -- -R spec",
-"precoveralls": "istanbul cover _mocha test/{**/,/}*.js --report lcovonly -- -R spec && npm i coveralls@2",
-"coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-```
+<script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=coverage-scripts.json"></script>
 
 And all you have to do to make travis send the coverage reports to coveralls, is to add and **after_script** section to **travis.yml**:
 
-```yml
-after_script:
-  - npm run coveralls
-```
+<script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=travis-after-script.yml"></script>
 
 
 ## Code style
@@ -70,14 +54,7 @@ npm install jscs jshint --save-dev
 
 And update the scripts in `packages.json`:
 
-```json
-"scripts": {
-  "test-jscs": "node_modules/jscs/bin/jscs index.js test/index.js",
-  "test-jshint": "jshint index.js test/index.js",
-  "test-style": "npm run test-jshint && npm run test-jscs",
-  "test": "npm run test-style && mocha test/{**/,/}*.js"
-}
-```
+<script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=lint-scripts.json"></script>
 
 With the update **npm test** task, the module will fail not only if the tests will not pass but if the module's code style will be broken.
 
@@ -113,8 +90,9 @@ The url to your project's issue tracker and / or the email address to which issu
 It should look like this:
 
 ```json
-{ "url" : "https://github.com/owner/project/issues"
-, "email" : "project@hostname.com"
+{
+  "url" : "https://github.com/owner/project/issues",
+  "email" : "project@hostname.com"
 }
 ```
 
@@ -168,22 +146,26 @@ Specify the place where your code lives. This is helpful for people who want to 
 Do it like this:
 
 ``` json
-"repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/npm/npm.git"
-  }
+"repository": {
+  "type" : "git",
+  "url" : "https://github.com/npm/npm.git"
+}
+```
 
-"repository" :
-  { "type" : "svn"
-  , "url" : "https://v8.googlecode.com/svn/trunk/"
-  }
+or like this:
+
+``` json
+"repository": {
+  "type" : "svn",
+  "url" : "https://v8.googlecode.com/svn/trunk/"
+}
 ```
 
 The URL should be a publicly available (perhaps read-only) url that can be handed directly to a VCS program without any modification. It should not be a url to an html project page that you put in your browser. It's for computers.
 
 For GitHub, GitHub gist, Bitbucket, or GitLab repositories you can use the same shortcut syntax you use for **npm install**:
 
-```json
+```
 "repository": "npm/npm"
 
 "repository": "gist:11081aaa281"
