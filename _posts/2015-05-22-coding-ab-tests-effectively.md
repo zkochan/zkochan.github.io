@@ -22,7 +22,7 @@ In most cases it is enough to use front-end side testing, and there are many ser
 * [Visual Website Optimizer][vwo]
 * [Maxymiser][maxymiser]
 
-##How does front-end A/B testing work?
+## How does front-end A/B testing work?
 
 Front-end A/B testing is great, because it doesn't require changes in the app's codebase. In a nutshell, front-end A/B tests are just javascripts injected into the page.
 
@@ -42,7 +42,7 @@ If a dev is lazy, he will just copy/paste the code into the different variations
 
 But there's a better solution that I'll explain later.
 
-##Browserify + Livereload
+## Browserify + Livereload
 
 Developing experiments using Optimizely's built-in editor has many negative sides:
 
@@ -61,7 +61,7 @@ These are not issues that Optimizely has to solve. In fact, these problems are a
 
 [Livereload][livereload] can reload the page in the browser when the experiment is updated.
 
-##Foso means cool
+## Foso means cool
 
 It is very easy to create a simple NodeJS app that will do all the hard work and bundle the experiment code. When that's ready, all that remains to be done is adding two links to the page on which the experiment has to be applied:
 
@@ -70,7 +70,7 @@ It is very easy to create a simple NodeJS app that will do all the hard work and
 
 And the good news is: I've already created that simple NodeJS app! It is called [foso][] and uses some simple conventions to bundle scripts for multipage experiments.
 
-##How to use foso with Optimizely?
+## How to use foso with Optimizely?
 
 Lets return to our example, where we wanted to do 3 variations in one experiment, and reuse some of the code. In order to implement it with foso, we can use this folder structure:
 
@@ -94,49 +94,49 @@ my-experiment
 
 **red-sign-in.less** has to contain the styles that are overriding the styles of the Sign in button, making it red. It can look like this:
 
-{% highlight css %}
+```css
 .my-experiment .sign-in {
   background-color: red;
 }
-{% endhighlight %}
+```
 
 **new-logo.less** has to change the logo. Something like this will do:
 
-{% highlight css %}
+```css
 .my-experiment .logo {
   background-image: url(//example.com/some.png);
 }
-{% endhighlight %}
+```
 
 **add-class.js** can add a new class to the body in order to make the new selectors override the original styles of the elements.
 
-{% highlight javascript %}
+```js
 $('body').addClass('my-experiment');
-{% endhighlight %}
+```
 
 Now the interesting part. The 1st variation has to require the red button. **variation-1/homepage/index.js** will look like this:
 
-{% highlight javascript %}
+```js
 require('../../shared/red-sign-in.less');
 require('../../shared/add-class.js');
-{% endhighlight %}
+```
 
 The 2nd variation has to require the logo change. **variation-2/homepage/index.js**:
 
-{% highlight javascript %}
+```js
 require('../../shared/new-logo.less');
 require('../../shared/add-class.js');
-{% endhighlight %}
+```
 
 The third variation can reuse the code from the 1st and 2nd variations and add its own changes upon them.
 **variation-3/homepage/index.js**:
 
-{% highlight javascript %}
+```js
 require('../../variation-1/homepage');
 require('../../variation-2/homepage');
 
 require('./changing-footer.js');
-{% endhighlight %}
+```
 
 Each variation can be tested locally by running ``foso serve`` from the variation's root directory (e.g, my-experiment/variation-1/). The files will be bundled and saved into the ``dist/`` folders of each variation.
 
