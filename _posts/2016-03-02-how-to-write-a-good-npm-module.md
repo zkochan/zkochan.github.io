@@ -12,14 +12,14 @@ However, writing an **awesome! npm module** involves more than just creating a m
 
 ## Tests are important!
 
-An awesome npm module should have tests. It doesn't matter what test framework is used but always add the test running command to the scripts section of `package.json`. E.g., if you use [mocha](https://mochajs.org/), you'll have something like this:
+An awesome npm module should have tests. It doesn't matter what test framework is used as long as the test runner command is in the `scripts` section of `package.json`. E.g., if you use [mocha](https://mochajs.org/), the `scripts` section will look like this:
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=test-script.json"></script>
 
 A list of the most popular [NodeJS testing frameworks](https://github.com/vndmtrx/awesome-nodejs#testing).
 
 
-## Configure continuous integration
+## Continuous integration
 
 If your module is open source, your best CI choice will probably be [Travis](https://travis-ci.org/). Travis is completely free for open source projects. In order to configure your project for running on travis, just add a minimal `.travis.yml` file to the root directory of your module:
 
@@ -34,7 +34,13 @@ Once you configured **npm test** and CI, you can configure coverage reporting as
 
 If your project is open source, you can use [coveralls](https://coveralls.io/), which is free for open source and has travis integration.
 
-For generating the coverage reports, you can use [istanbul](https://github.com/gotwarlost/istanbul): `npm install istanbul --save`. Once you have it
+For generating the coverage reports, you can use [istanbul](https://github.com/gotwarlost/istanbul):
+
+```
+npm install istanbul --save
+```
+
+Once you have it
 in your dev dependencies, you can add a few tasks to the scripts section that will generate the coverage reports and send them to coveralls:
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=coverage-scripts.json"></script>
@@ -75,6 +81,14 @@ npm install eslint --save-dev
 The scripts property will look like this:
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=eslint-scripts.json"></script>
+
+
+## Please, don't use Gulp and Grunt
+
+Build systems are an unnecessary abstraction over tools that can be used directly through the command line and as a consequence, through npm scripts. Read more about:
+
+* [Why we should stop using Grunt & Gulp](http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/).
+* [How to Use npm as a Build Tool](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 
 
 ## Flesh out the package.json
