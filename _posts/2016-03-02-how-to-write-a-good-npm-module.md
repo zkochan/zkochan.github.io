@@ -6,15 +6,17 @@ categories: javascript
 comments: true
 ---
 
-Creating a new npm module is as easy as executing the [npm init](https://docs.npmjs.com/cli/init) command.
-However, writing a good npm module is not that easy. Here you'll find some suggestions about how to make a great npm module.
+Creating a new _npm module_ is as easy as executing the [npm init](https://docs.npmjs.com/cli/init) command.
+However, writing an **awesome! npm module** involves more than just creating a minimal `package.json` file.
 
 
-## Write tests
+## Tests are important!
 
-A good npm module will have tests. It doesn't matter what test framework will you use but you'll have to add the test running command to the scripts section of `package.json`. E.g., if you use [mocha](https://mochajs.org/), you'll have something like this:
+An awesome npm module should have tests. It doesn't matter what test framework is used but always add the test running command to the scripts section of `package.json`. E.g., if you use [mocha](https://mochajs.org/), you'll have something like this:
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=test-script.json"></script>
+
+A list of the most popular [NodeJS testing frameworks](https://github.com/vndmtrx/awesome-nodejs#testing).
 
 
 ## Configure continuous integration
@@ -23,7 +25,7 @@ If your module is open source, your best CI choice will probably be [Travis](htt
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=.travis.yml"></script>
 
-Once you have it, travis will automatically run **npm test** on your module, every time you push. If it fails, you'll recive an email.
+Once you have it, travis will automatically run **npm test** on your module, every time you push. If it fails, you'll recieve an email.
 
 
 ## Coverage reporting
@@ -37,16 +39,19 @@ in your dev dependencies, you can add a few tasks to the scripts section that wi
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=coverage-scripts.json"></script>
 
-And all you have to do to make travis send the coverage reports to coveralls, is to add and **after_script** section to **travis.yml**:
+And all you have to do in order to make travis send the coverage reports to coveralls, is to add an **after_success** section to **.travis.yml**:
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=travis-after-script.yml"></script>
 
 
-## Code style
+## Coding style
 
-Choose a code style and force it in your module. A good choice might be a preconfigured codestyle like [standardjs](http://standardjs.com/) or [xo](https://github.com/sindresorhus/xo).
+Choose a coding style and enforce it in your module. A good choice might be a preconfigured codestyle like [standardjs](http://standardjs.com/) or [xo](https://github.com/sindresorhus/xo).
 
-However, if you have your own taste, you can write your own `.jshintrc`, `.jscsrc` files. To force your own code style, install the style checkers as dev dependencies:
+
+### Custom coding style using JSHint + JSCS
+
+If you have your own style, write custom `.jshintrc` and `.jscsrc` files in the root directory of your module. In order to enforce your own coding style you'll have to install the style checkers as dev dependencies:
 
 ```
 npm install jscs jshint --save-dev
@@ -56,7 +61,20 @@ And update the scripts in `packages.json`:
 
 <script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=lint-scripts.json"></script>
 
-With the update **npm test** task, the module will fail not only if the tests will not pass but if the module's code style will be broken.
+With the updated **npm test** task, the module will fail if the coding style will be broken somewhere in the project.
+
+
+### Custom coding style using ESLint
+
+[ESLint](http://eslint.org/) can be used as an alternative to to the combination of JSHint and JSCS. To enforce coding styles using ESLint, you'll have to create an `.eslintrc` configuration file in the root directory of the module and install ESLint as dev dependency:
+
+```
+npm install eslint --save-dev
+```
+
+The scripts property will look like this:
+
+<script src="https://gist.github.com/zkochan/dbd6c8542818000cb9cc2a1a70aaee97.js?file=eslint-scripts.json"></script>
 
 
 ## Flesh out the package.json
@@ -145,7 +163,7 @@ Specify the place where your code lives. This is helpful for people who want to 
 
 Do it like this:
 
-``` json
+```
 "repository": {
   "type" : "git",
   "url" : "https://github.com/npm/npm.git"
@@ -154,7 +172,7 @@ Do it like this:
 
 or like this:
 
-``` json
+```
 "repository": {
   "type" : "svn",
   "url" : "https://v8.googlecode.com/svn/trunk/"
