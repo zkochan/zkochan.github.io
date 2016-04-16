@@ -37,7 +37,7 @@ Abo randomly assigns a variation to a user and keeps that user on the variation 
 
 Although the algorithm seems very simple, it can achieve anything required for an A/B experiment. Lets suppose you need an experiment that will change the size of the page header for 10% of mobile traffic. You can achive it by writing an assignemt condition that will return true only on cell phones:
 
-{% highlight JavaScript %}
+```js
 var abo = require('abo');
 
 var expt = {
@@ -77,32 +77,32 @@ var expt = {
  * after receving it
  */
 abo([expt]);
-{% endhighlight %}
+```
 
 
 ## How to structure an Abo project?
 
 Big projects can have dozens of A/B tests running or under development. Hence, it is important to have a good structure for your A/B testing project. Fortunately, there's a [Yeoman generator][abo-generator] for generating Abo projects and experiments. In order to use it, you'll have to install [Yeoman][] first.
 
-{% highlight bash %}
+```
 npm install -g yo
-{% endhighlight %}
+```
 
 Yeoman is an amazing tool that helps kick-start new projects! If you haven't used it so far, check out the list of their [generators][]. You'll probably find a lot of usefull ones for your needs.
 
 Now that you have Yeoman installed, you can install Yeoman generator for Abo:
 
-{% highlight bash %}
+```
 npm install -g generator-abo
-{% endhighlight %}
+```
 
 Great! Now you can create a folder for your A/B testing project and call `yo abo` to kikstart your project.
 
-{% highlight bash %}
+```
 mkdir ab
 cd ab
 yo abo
-{% endhighlight %}
+```
 
 Yeoman will ask a few questions about your project.
 
@@ -141,10 +141,10 @@ Although, there is a better solution of delivering your changes to production. T
 
 If you create an Ung server in production and update your `ung.json` file to point to the right domain, you'll be able to update your experiments in production by running two commands in the root directory of your project:
 
-{% highlight bash %}
+```
 ung pack prod
 ung publish prod
-{% endhighlight %}
+```
 
 The first command bundles your resources and packs them to a gzip and the second one posts them to production.
 
