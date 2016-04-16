@@ -85,8 +85,9 @@ The scripts property will look like this:
 
 ## Please, don't use Gulp and Grunt
 
-Build systems are an unnecessary abstraction over tools that can be used directly through the command line and as a consequence, through npm scripts. Read more about:
+Build systems are an unnecessary abstraction over tools that can be used directly through the command line and as a consequence, through npm scripts. Read more:
 
+* [Why I Left Gulp and Grunt for npm Scripts](https://medium.freecodecamp.com/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8)
 * [Why we should stop using Grunt & Gulp](http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/).
 * [How to Use npm as a Build Tool](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 
@@ -206,3 +207,7 @@ For GitHub, GitHub gist, Bitbucket, or GitLab repositories you can use the same 
 
 "repository": "gitlab:another/repo"
 ```
+
+## You might be interested in
+
+* An egghead course: [How to Write an Open Source JavaScript Library](https://egghead.io/series/how-to-write-an-open-source-javascript-library)
