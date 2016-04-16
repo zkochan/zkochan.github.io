@@ -6,6 +6,7 @@ categories: nodejs
 comments: true
 permalink: /nodejs/2015/04/18/config-your-nodejs-as-a-pro.html
 ---
+
 When I started to develop apps using NodeJS, I wondered, how should I save my configs? It seems that everyone does it in his own way.
 
 ## The most popular solution - JS files
@@ -47,19 +48,19 @@ JSON files are cool, and I have nothing against them. However, there is also ano
 
 With YAML your config file will look like this:
 
-{% highlight yaml %}
+```yaml
 app:
   name: hello-world
 port: 3000
 mongo: mongodb://localhost:27017
-{% endhighlight %}
+```
 
 So how can you use YAML files to store your configs? Unfortunately, Node-convict doesn't support yaml files currently. However, it is possible to pass an object instead of a file path to convict. Hence, you can
 get the config object from a YAML file, using some other tools, like the npm package called [JS-YAML][js-yaml].
 
 And you'll have something like this:
 
-{% highlight javascript %}
+```js
 var util = require('util');
 var fs = require('fs');
 var yaml = require('js-yaml');
@@ -91,7 +92,7 @@ config.load({
 config.validate();
 
 module.exports = config;
-{% endhighlight %}
+```
 
 
 [mean-js]: http://meanjs.org/
