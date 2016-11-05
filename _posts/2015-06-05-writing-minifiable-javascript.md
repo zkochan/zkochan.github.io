@@ -162,9 +162,9 @@ function createHTMLElement(a,b,c,d,e){return"<"+a+' id="'+b+'" class="'+c+'" tit
 
 The version with multiple arguments is **28% smaller**, when minified.
 
-## Don't use too much strings
+## Don't use too many strings
 
-Strings (like keywords) are not minified at all. Try to avoid logging too much in your code or log only numbers and save the descriptions somewhere else.
+Strings (like keywords) are not minified at all. Try to avoid logging too many in your code or log only numbers and save the descriptions somewhere else.
 
 ## Avoid global variables
 
