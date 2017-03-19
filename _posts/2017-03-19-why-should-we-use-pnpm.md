@@ -7,12 +7,14 @@ comments: true
 ---
 
 [pnpm](https://github.com/pnpm/pnpm) is an alternative package manager for Node.js.
-It is a drop-in replacement for npm but faster and more efficient.
+It is a drop-in replacement for npm, but faster and more efficient.
 
-How fast? _10 times faster!_ See benchmarks [here](https://github.com/pnpm/node-package-manager-benchmark).
+How fast? _3 times faster!_ See benchmarks [here](https://github.com/pnpm/node-package-manager-benchmark).
 
-Why more efficient? It uses a machine store for packages and links them to projects
-instead of copying. As a result, _you save dozens of gigabytes of memory_!
+Why more efficient? When you install a package, we keep it in a global store on your machine,
+and hard-link to it. For each version of a module, there is only ever one copy kept on disk.
+When using npm or yarn for example, if you have 100 packages using lodash, you will have
+100 copies of lodash on disk. _Pnpm allows you to save gigabytes of memory!_
 
 ## Why not Yarn?
 
