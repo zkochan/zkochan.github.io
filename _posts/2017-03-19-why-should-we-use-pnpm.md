@@ -2,7 +2,7 @@
 layout: post
 title:  "Why should we use pnpm?"
 date: "2017-03-19 18:39:00 +0200"
-categories: javascript, node
+categories: nodejs
 comments: true
 ---
 
