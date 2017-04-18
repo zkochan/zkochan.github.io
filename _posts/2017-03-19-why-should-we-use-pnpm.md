@@ -136,7 +136,7 @@ As you can see
 
 _foo_ can require _bar_, because Node.js looks modules up in the directory structure till the root
 of the disk. And _foo_ can also require _foo_, because it is in a folder called _node_modues_
-(yep, this is what some package do).
+(yep, this is what some packages do).
 
 ## Are you convinced?
 
