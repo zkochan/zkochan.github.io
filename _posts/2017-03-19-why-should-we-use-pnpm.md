@@ -41,8 +41,7 @@ to verify the integrity of every installed package before its code is executed.
 2. **offline mode.** pnpm saves all the downloaded package tarballs in a local registry mirror.
 It never makes requests when a package is available locally. With the `--offline` parameter,
 HTTP requests can be prohibited at all.
-3. **speed.** pnpm is not only faster than npm, it is faster than Yarn with cold cache, and _a
-lot faster_ than Yarn with hot cache.
+3. **speed.** pnpm is not only faster than npm, it is faster than Yarn. It is faster than Yarn both with cold and hot cache. Yarn copies files from cache whereas pnpm just links them from the global store.
 
 ## How is it possible?
 
