@@ -117,7 +117,7 @@ just a symlink. This is fine as Node.js ignores symlinks and executes the realpa
 So `require('foo')` will execute the file in `node_modules/.registry.npmjs.org/foo/1.0.0/node_modules/foo/index.js`
 not in `node_modules/foo/index.js`.
 
-Secondly, non of the installed packages have their own _node_modues_ folder inside their directories.
+Secondly, non of the installed packages have their own _node_modules_ folder inside their directories.
 So how can _foo_ require _bar_? Lets have a look on the folder that contains the _foo_ package:
 
 ```
@@ -134,7 +134,7 @@ As you can see
 2. both packages are inside a folder called _node_modules_
 
 _foo_ can require _bar_, because Node.js looks modules up in the directory structure till the root
-of the disk. And _foo_ can also require _foo_, because it is in a folder called _node_modues_
+of the disk. And _foo_ can also require _foo_, because it is in a folder called _node_modules_
 (yep, this is what some packages do).
 
 ## Are you convinced?
