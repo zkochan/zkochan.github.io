@@ -18,7 +18,7 @@ When using npm or yarn for example, if you have 100 packages using lodash, you w
 
 ## Why not Yarn?
 
-TBH, I was really pissed when Facebook has made Yarn public. I was heavily contributing
+TBH, I was really pissed when Yarn has been made public. I was heavily contributing
 to pnpm for several months and there were nowhere any news about Yarn. The info about its
 development was not public.
 
