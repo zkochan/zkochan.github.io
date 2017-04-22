@@ -18,11 +18,11 @@ When using npm or yarn for example, if you have 100 packages using lodash, you w
 
 ## Why not Yarn?
 
-TBH, I was really pissed when Yarn has been made public. I was heavily contributing
+TBH, I was really disappointed when Yarn became public. I was heavily contributing
 to pnpm for several months and there were nowhere any news about Yarn. The info about its
 development was not public.
 
-After a few days of depression, I realized that Yarn is just a small improvement
+After a few days, I realized that Yarn is just a small improvement
 over npm. Although it makes installations faster and it has some nice new features,
 it uses the same flat _node_modules_ structure that npm does (since version 3).
 
