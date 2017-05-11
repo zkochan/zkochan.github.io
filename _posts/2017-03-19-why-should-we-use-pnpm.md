@@ -19,7 +19,7 @@ When using npm or yarn for example, if you have 100 packages using lodash, you w
 ## Why not Yarn?
 
 TBH, I was really disappointed when Yarn became public. I was heavily contributing
-to pnpm for several months and there were nowhere any news about Yarn. The info about its
+to pnpm for several months and there was nowhere any news about Yarn. The info about its
 development was not public.
 
 After a few days, I realized that Yarn is just a small improvement
@@ -29,7 +29,7 @@ it uses the same flat _node_modules_ structure that npm does (since version 3).
 And flattened dependency trees come with a bunch of issues:
 
 1. modules can access packages they don't depend on
-2. the algorithm of flattenning a dependency tree is pretty complex
+2. the algorithm of flattening a dependency tree is pretty complex
 3. some of the packages have to be copied inside one project's _node_modules_ folder
 
 Furthermore, there are issues that Yarn doesn't plan to solve, like the disk space usage issue.
@@ -68,9 +68,9 @@ node_modules
 This approach had two serious issues:
 
 * frequently packages were creating too deep dependency trees, which caused long directory paths issue on Windows
-* packages were copy pasted several times, when they were required in different dependencies
+* packages were copy pasted several times when they were required in different dependencies
 
-To solve these issues, npm rethinked the _node_modules_ structure and came up with flattening.
+To solve these issues, npm rethought the _node_modules_ structure and came up with flattening.
 With _npm@3_ the _node_modules_ structure now looks like this:
 
 ```
@@ -87,7 +87,7 @@ For more info about the npm v3 dependency resolution, see [npm v3 Dependency Res
 
 Unlike npm@3, pnpm tries to solve the issues that npm@2 had, without flattening the dependency tree.
 In a _node_modules_ folder created by pnpm, all packages have their own dependencies grouped together,
-but the directory tree is never as deep as with npm@2. pnpm keeps all deps flat, but uses symlinks
+but the directory tree is never as deep as with npm@2. pnpm keeps all dependencies flat but uses symlinks
 to group them together.
 
 ```
@@ -110,14 +110,14 @@ node_modules
 To see a live example, visit the [sample pnpm project](https://github.com/pnpm/sample-project) repo.
 
 Although the example seems too complex for a small project, for bigger projects the
-structure looks better structured than what is created by npm/yarn. Lets see why it works.
+structure looks better structured than what is created by npm/yarn. Let's see why it works.
 
 First of all, you might have noticed, that the package in the root of _node_modules_ is
 just a symlink. This is fine as Node.js ignores symlinks and executes the realpath.
 So `require('foo')` will execute the file in `node_modules/.registry.npmjs.org/foo/1.0.0/node_modules/foo/index.js`
 not in `node_modules/foo/index.js`.
 
-Secondly, non of the installed packages have their own _node_modules_ folder inside their directories.
+Secondly, none of the installed packages have their own _node_modules_ folder inside their directories.
 So how can _foo_ require _bar_? Lets have a look on the folder that contains the _foo_ package:
 
 ```
