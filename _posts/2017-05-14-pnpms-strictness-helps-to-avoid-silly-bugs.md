@@ -99,14 +99,16 @@ only one symlink in the `node_modules` folder: `express`. No `debug`!
 On next run, your app will immediately fail, because it won't be able to find `debug`. Which is the way it should be!
 To fix the project, you'll just run `pnpm install debug` and `debug` will be added to your `package.json` (pnpm saves packages
 to `package.json` by default, even when the `--save` parameter is not passed). With `debug` in your `package.json`, you
-can be sure that it will always be installed in into `node_modules` and it will work with your code as expected.
+can be sure that it will always be installed into `node_modules` and it will work with your code as expected.
 
-pnpm gets a lot of issues opened because some packages/toolings don't work with it.
-These issues are mostly happening because the packages/toolings have some `package.json`s that miss dependencies
-used in the code. Some developers even think that it is fine to not include dependencies in `package.json`. It is not!
+pnpm gets a lot of issues opened because some packages/toolings don't work.
+These issues are mostly happening because the packages/toolings have `package.json`s that miss dependencies.
+Some developers even think that it is fine to not include dependencies in `package.json`
+because "it works with npm/yarn". It is not OK! It might work today but it will break tomorrow.
 
 You might not use pnpm. But please, publish valid packages. If you don't use pnpm, use some tooling
-like [dependency-check](https://www.npmjs.com/package/dependency-check) to be sure that you have a valid package.
+like [dependency-check](https://www.npmjs.com/package/dependency-check) to validate your package
+before publishing it to the registry.
 
 ## Do you want to give pnpm a try?
 
