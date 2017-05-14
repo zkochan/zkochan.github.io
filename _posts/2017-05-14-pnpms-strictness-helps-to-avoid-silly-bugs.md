@@ -107,3 +107,10 @@ used in the code. Some developers even think that it is fine to not include depe
 
 You might not use pnpm. But please, publish valid packages. If you don't use pnpm, use some tooling
 like [dependency-check](https://www.npmjs.com/package/dependency-check) to be sure that you have a valid package.
+
+## Do you want to give pnpm a try?
+
+Just install pnpm via npm: `npm install -g pnpm`. And use it instead of npm whenever you want to install something: `pnpm i foo`.
+
+Also you can read more info at the [pnpm GitHub repo](https://github.com/pnpm/pnpm) or [pnpm.js.org](https://pnpm.js.org/).
+You can follow [pnpm on Twitter](https://twitter.com/pnpmjs) or ask for help at the [pnpm Gitter Chat Room](https://gitter.im/pnpm/pnpm).
