@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "pnpm is strict and it is great"
+title:  "pnpm's strictness helps to avoid silly bugs"
 date: "2017-05-14 18:30:00 +0200"
 categories: nodejs
 comments: true
