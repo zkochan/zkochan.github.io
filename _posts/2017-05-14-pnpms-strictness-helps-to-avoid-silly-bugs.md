@@ -110,6 +110,14 @@ You might not use pnpm. But please, publish valid packages. If you don't use pnp
 like [dependency-check](https://www.npmjs.com/package/dependency-check) to validate your package
 before publishing it to the registry.
 
+## npm’s global style installation
+
+A month later after publishing this article, I have found out that it is possible to avoid these kind of bugs with npm as well! It is not the default behavior but npm can install `node_modules` in a different layout, in which
+
+> Only your direct dependencies will show in node_modules and everything they depend on will be flattened in their node_modules folders.
+
+To achieve this, just run npm with the [--global-style](https://docs.npmjs.com/misc/config#global-style) option or change its value in the configs via `npm c set global-style true`.
+
 ## Do you want to give pnpm a try?
 
 Just install pnpm via npm: `npm install -g pnpm`. And use it instead of npm whenever you want to install something: `pnpm i foo`.
