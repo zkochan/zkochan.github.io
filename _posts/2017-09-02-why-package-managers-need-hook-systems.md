@@ -14,11 +14,8 @@ When installing dependencies of a Node-project, the node_modules structure is 10
 
 A typical dependency tree is huge and you have no ownership over the majority of your dependencies. Just analyze any of your dependencies at [npm.anvaka.com](http://npm.anvaka.com).
 
-<figure>![](https://cdn-images-1.medium.com/max/992/1*HIEmSy7PaNBd6mhs8-Gddg.png)
-
+![](https://i.imgur.com/rynJysq.png)
 <figcaption>The dependency graph of browserify</figcaption>
-
-</figure>
 
 What to do if there is a bug in one of the packages inside your node_modules? If the issue is in a root dependency, then you have 3 options:
 
@@ -43,9 +40,7 @@ Let’s say there is a bug in bar@2.0.0 and you submitted a PR with a fix. Howev
 
 ### Why hooks are important for pnpm’s survival
 
-Hooks are nice to have in any PM but for pnpm they are especially important. As you may know already, pnpm creates a strict symlinked node_modules structure. You can read more about it in:
-
-[pnpm’s strictness helps to avoid silly bugs](https://medium.com/pnpm/pnpms-strictness-helps-to-avoid-silly-bugs-9a15fb306308)
+Hooks are nice to have in any PM but for pnpm they are especially important. As you may know already, pnpm creates a strict symlinked node_modules structure. You can read more about it in: [pnpm’s strictness helps to avoid silly bugs](https://medium.com/pnpm/pnpms-strictness-helps-to-avoid-silly-bugs-9a15fb306308)
 
 Although the node_modules structure created by pnpm is Node.js-compatible, many packages have bugs that show up only when installed via pnpm. As a consequence, pnpm has issues with some popular frameworks and tools.
 
@@ -68,7 +63,7 @@ I created another [PR](https://github.com/browserify/resolve/pull/135) with the 
 
 I realized that we cannot change the world but we can change pnpm, so I released the readPackage hook. My changes to resolve are available via my fork on GitHub, so all we have to do is to tell pnpm to install resolve from the fork. This can be done by declaring the hook in a file called pnpmfile.js:
 
-<iframe src="" width="0" height="0" frameborder="0" scrolling="no"><a href="https://medium.com/media/faaee4208a92f9cc42fe42bc7a656e28/href">https://medium.com/media/faaee4208a92f9cc42fe42bc7a656e28/href</a></iframe>
+<script src="https://gist.github.com/zkochan/fe33b3a9f3963f3a834334918c7973ca.js?file=pnpmfile.js"></script>
 
 During installation, pnpm will pass every package.json to this hook first and use the version of the package.json returned by the hook. So it won’t matter on which version of resolve the package depends, my fork will be installed instead and the project will work fine with pnpm.
 
